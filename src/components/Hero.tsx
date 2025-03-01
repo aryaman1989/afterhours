@@ -1,20 +1,9 @@
 
 import { useState, useEffect } from 'react';
-import { ChevronDown, Moon, Star } from 'lucide-react';
+import { Moon, Star } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
-  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
-  
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollIndicator(window.scrollY < 100);
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-16 px-4" id="home">
       {/* Visual elements */}
@@ -47,16 +36,6 @@ const Hero = () => {
           </Button>
         </div>
       </div>
-      
-      {/* Scroll indicator */}
-      {showScrollIndicator && (
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white/50 animate-bounce transition-opacity">
-          <div className="flex flex-col items-center">
-            <span className="text-sm mb-2">Scroll to explore</span>
-            <ChevronDown className="w-6 h-6" />
-          </div>
-        </div>
-      )}
       
       {/* Time indicator */}
       <div className="absolute top-32 right-8 hidden md:flex items-center text-sm text-white/50 font-mono">
