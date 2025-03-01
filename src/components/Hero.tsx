@@ -32,7 +32,6 @@ const Hero = () => {
           <span className="block bg-gradient-to-r from-afterhours-crimson via-afterhours-neon to-afterhours-blue bg-clip-text text-transparent text-glow">
             goes to sleep
           </span>
-          <span className="block text-white mt-2">your thoughts <span className="bg-gradient-to-r from-afterhours-neon to-afterhours-blue bg-clip-text text-transparent text-glow">come alive</span></span>
         </h1>
         
         <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.4s' }}>
