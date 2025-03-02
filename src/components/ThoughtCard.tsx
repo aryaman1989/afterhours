@@ -43,7 +43,7 @@ const ThoughtCard = ({ thought }: ThoughtCardProps) => {
   };
 
   return (
-    <div className={`glass-morphism p-5 overflow-hidden transition-all duration-300 hover:shadow-xl ${getRandomRotation()} border border-white/10 ${getMoodBorder(thought.mood)}`}>
+    <div className={`glass-card p-5 overflow-hidden transition-all duration-300 hover:shadow-xl ${getRandomRotation()} backdrop-blur-md border border-white/10 ${getMoodBorder(thought.mood)}`}>
       <div className={`absolute -inset-1 opacity-30 rounded-xl bg-gradient-to-br ${getMoodColor(thought.mood)} z-0 blur-xl`}></div>
       
       <div className="relative z-10">
