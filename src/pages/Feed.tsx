@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import ThoughtCard from "../components/ThoughtCard";
@@ -38,7 +37,7 @@ const Feed = () => {
       mood: "calm" as const
     }
   ]);
-
+  
   // Create grain overlay effect
   useEffect(() => {
     const grainOverlay = document.createElement('div');
@@ -58,7 +57,7 @@ const Feed = () => {
       <main className="container mx-auto px-4 pt-24 pb-16">
         <div className="max-w-4xl mx-auto">
           <div className="mb-12 text-center">
-            <div className="inline-block px-4 py-1 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-sm text-gray-300 mb-6">
+            <div className="inline-block px-4 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300 mb-6">
               <MoonStar className="w-4 h-4 inline-block mr-2 text-afterhours-neon" />
               <span>Live Thoughts</span>
             </div>
@@ -68,7 +67,7 @@ const Feed = () => {
             </p>
           </div>
           
-          <div className="mb-10 p-6 glass-card bg-gradient-to-br from-afterhours-blue/10 to-afterhours-darkpurple/30 rounded-xl backdrop-blur-sm">
+          <div className="mb-10 p-6 glass-morphism bg-gradient-to-br from-afterhours-blue/10 to-afterhours-darkpurple/30 rounded-xl">
             <h2 className="text-xl font-bold text-white mb-4">Filter Thoughts</h2>
             <div className="flex flex-wrap gap-2">
               <Button variant="outline" className="text-sm border-white/20 bg-white/5 hover:bg-white/10 hover:border-afterhours-blue/50 transition-all duration-300">All</Button>
@@ -86,7 +85,7 @@ const Feed = () => {
           </div>
           
           <div className="mt-10 text-center">
-            <Button variant="outline" className="border-white/20 text-white hover:bg-white/5 backdrop-blur-sm neo-glow">
+            <Button variant="outline" className="border-white/20 text-white hover:bg-white/5 neo-glow">
               Load More Thoughts
             </Button>
           </div>

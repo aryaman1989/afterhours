@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, Moon, Sun, X } from 'lucide-react';
+import { Menu, Moon, Star, X } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
 
@@ -24,10 +24,14 @@ const Navbar = () => {
       <div className="container mx-auto px-4 flex items-center justify-between">
         <div className="flex items-center">
           <Link to="/">
-            <h1 className="text-2xl font-bold text-white font-montserrat tracking-wider">
+            <div className="text-2xl font-bold text-white font-montserrat tracking-wider flex items-center">
+              <span className="mr-2">
+                <Moon className="h-5 w-5 text-afterhours-blue inline-block" />
+                <Star className="h-3 w-3 text-afterhours-purple -ml-1 animate-star-pulse" />
+              </span>
               <span className="text-afterhours-blue text-glow">After</span>
               <span>Hours</span>
-            </h1>
+            </div>
           </Link>
         </div>
         
