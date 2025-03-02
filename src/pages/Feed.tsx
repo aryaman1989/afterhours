@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import ThoughtCard from "../components/ThoughtCard";
 import ParticleBackground from "../components/ParticleBackground";
 import { Button } from "@/components/ui/button";
+import { MoonStar, Star } from "lucide-react";
 
 const Feed = () => {
   // Mock data for thought feed
@@ -57,20 +58,24 @@ const Feed = () => {
       <main className="container mx-auto px-4 pt-24 pb-16">
         <div className="max-w-4xl mx-auto">
           <div className="mb-12 text-center">
-            <h1 className="text-3xl md:text-4xl font-bold font-montserrat text-white mb-4">Live Thought Feed</h1>
+            <div className="inline-block px-4 py-1 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-sm text-gray-300 mb-6">
+              <MoonStar className="w-4 h-4 inline-block mr-2 text-afterhours-neon" />
+              <span>Live Thoughts</span>
+            </div>
+            <h1 className="text-3xl md:text-4xl font-bold font-montserrat text-white mb-4 bg-gradient-to-r from-afterhours-blue via-afterhours-purple to-afterhours-blue bg-clip-text text-transparent">Live Thought Feed</h1>
             <p className="text-gray-300 max-w-2xl mx-auto">
               See what people are thinking about in real-time. These thoughts are shared anonymously from users around the world.
             </p>
           </div>
           
-          <div className="mb-10 p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
+          <div className="mb-10 p-6 glass-card bg-gradient-to-br from-afterhours-blue/10 to-afterhours-darkpurple/30 rounded-xl backdrop-blur-sm">
             <h2 className="text-xl font-bold text-white mb-4">Filter Thoughts</h2>
             <div className="flex flex-wrap gap-2">
-              <Button variant="outline" className="text-sm border-white/20 bg-white/5">All</Button>
-              <Button variant="outline" className="text-sm border-white/20 bg-transparent">Reflective</Button>
-              <Button variant="outline" className="text-sm border-white/20 bg-transparent">Anxious</Button>
-              <Button variant="outline" className="text-sm border-white/20 bg-transparent">Calm</Button>
-              <Button variant="outline" className="text-sm border-white/20 bg-transparent">Creative</Button>
+              <Button variant="outline" className="text-sm border-white/20 bg-white/5 hover:bg-white/10 hover:border-afterhours-blue/50 transition-all duration-300">All</Button>
+              <Button variant="outline" className="text-sm border-white/20 bg-transparent hover:bg-purple-600/10 hover:border-purple-400/50 transition-all duration-300">Reflective</Button>
+              <Button variant="outline" className="text-sm border-white/20 bg-transparent hover:bg-red-600/10 hover:border-red-400/50 transition-all duration-300">Anxious</Button>
+              <Button variant="outline" className="text-sm border-white/20 bg-transparent hover:bg-blue-600/10 hover:border-blue-400/50 transition-all duration-300">Calm</Button>
+              <Button variant="outline" className="text-sm border-white/20 bg-transparent hover:bg-green-600/10 hover:border-green-400/50 transition-all duration-300">Hopeful</Button>
             </div>
           </div>
           
@@ -81,12 +86,32 @@ const Feed = () => {
           </div>
           
           <div className="mt-10 text-center">
-            <Button variant="outline" className="border-white/20 text-white hover:bg-white/5">
+            <Button variant="outline" className="border-white/20 text-white hover:bg-white/5 backdrop-blur-sm neo-glow">
               Load More Thoughts
             </Button>
           </div>
+          
+          <div className="mt-20 text-center">
+            <div className="inline-flex items-center gap-2 text-sm text-gray-400">
+              <Star className="w-3 h-3 text-afterhours-neon animate-star-pulse" />
+              <span>Refreshing thoughts in real-time</span>
+              <Star className="w-3 h-3 text-afterhours-blue animate-star-pulse" style={{ animationDelay: '1.5s' }} />
+            </div>
+          </div>
         </div>
       </main>
+      
+      {/* Footer with subtle cosmic gradient */}
+      <footer className="py-8 border-t border-white/5 backdrop-blur-md relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-t from-afterhours-darkpurple/80 to-transparent opacity-50"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center">
+            <p className="text-gray-500 text-sm">
+              Made with <span className="text-afterhours-crimson text-glow animate-pulse inline-block">♥</span> by <span className="bg-gradient-to-r from-afterhours-crimson to-afterhours-blue bg-clip-text text-transparent text-sm font-medium">After Hours</span>
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };

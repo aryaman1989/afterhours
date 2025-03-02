@@ -28,32 +28,42 @@ const ThoughtCard = ({ thought }: ThoughtCardProps) => {
     }
   };
   
+  const getMoodBorder = (mood?: string) => {
+    switch (mood) {
+      case 'calm': return 'border-blue-500/20';
+      case 'reflective': return 'border-purple-500/20';
+      case 'anxious': return 'border-red-500/20';
+      case 'hopeful': return 'border-green-500/20';
+      default: return 'border-gray-500/20';
+    }
+  };
+  
   const getRandomRotation = () => {
     return Math.random() > 0.5 ? 'rotate-1' : '-rotate-1';
   };
 
   return (
-    <div className={`glass-card p-5 overflow-hidden transition-all duration-300 hover:shadow-xl ${getRandomRotation()}`}>
+    <div className={`glass-card p-5 overflow-hidden transition-all duration-300 hover:shadow-xl ${getRandomRotation()} backdrop-blur-md border border-white/10 ${getMoodBorder(thought.mood)}`}>
       <div className={`absolute -inset-1 opacity-30 rounded-xl bg-gradient-to-br ${getMoodColor(thought.mood)} z-0 blur-xl`}></div>
       
       <div className="relative z-10">
         <div className="text-sm text-gray-400 flex justify-between mb-3">
-          <span>{thought.anonymous ? 'Anonymous' : thought.author || 'Unknown'}</span>
-          <span>{formatTimeAgo(thought.timestamp)}</span>
+          <span className="font-medium">{thought.anonymous ? 'Anonymous' : thought.author || 'Unknown'}</span>
+          <span className="opacity-80">{formatTimeAgo(thought.timestamp)}</span>
         </div>
         
         <p className="text-white mb-4 leading-relaxed">{thought.content}</p>
         
         <div className="flex justify-between items-center pt-3 border-t border-white/10">
           <button 
-            className={`flex items-center gap-1 text-sm ${liked ? 'text-red-400' : 'text-gray-400'} hover:text-red-400 transition-colors`}
+            className={`flex items-center gap-1 text-sm ${liked ? 'text-afterhours-crimson' : 'text-gray-400'} hover:text-afterhours-crimson transition-colors`}
             onClick={() => setLiked(!liked)}
           >
-            <Heart className="w-4 h-4" />
+            <Heart className={`w-4 h-4 ${liked ? 'fill-afterhours-crimson' : ''}`} />
             <span>{liked ? thought.likes + 1 : thought.likes}</span>
           </button>
           
-          <button className="flex items-center gap-1 text-sm text-gray-400 hover:text-white transition-colors">
+          <button className="flex items-center gap-1 text-sm text-gray-400 hover:text-afterhours-blue transition-colors">
             <MessageCircle className="w-4 h-4" />
             <span>{thought.comments}</span>
           </button>
