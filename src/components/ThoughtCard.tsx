@@ -39,31 +39,31 @@ const ThoughtCard = ({ thought }: ThoughtCardProps) => {
   };
   
   const getRandomRotation = () => {
-    return Math.random() > 0.5 ? 'rotate-1' : '-rotate-1';
+    return Math.random() > 0.5 ? 'rotate-0.5' : '-rotate-0.5';
   };
 
   return (
-    <div className={`glass-card p-5 overflow-hidden transition-all duration-300 hover:shadow-xl ${getRandomRotation()} backdrop-blur-md border border-white/10 ${getMoodBorder(thought.mood)}`}>
-      <div className={`absolute -inset-1 opacity-30 rounded-xl bg-gradient-to-br ${getMoodColor(thought.mood)} z-0 blur-xl`}></div>
+    <div className={`glassmorphism p-5 overflow-hidden transition-all duration-300 hover:shadow-xl rounded-xl ${getRandomRotation()} ${getMoodBorder(thought.mood)}`}>
+      <div className={`absolute -inset-1 opacity-20 rounded-xl bg-gradient-to-br ${getMoodColor(thought.mood)} z-0 blur-xl`}></div>
       
       <div className="relative z-10">
-        <div className="text-sm text-gray-400 flex justify-between mb-3">
-          <span className="font-medium">{thought.anonymous ? 'Anonymous' : thought.author || 'Unknown'}</span>
+        <div className="text-xs font-medium text-gray-400 flex justify-between mb-3 items-center">
+          <span className="bg-white/5 px-3 py-1 rounded-full">{thought.anonymous ? 'Anonymous' : thought.author || 'Unknown'}</span>
           <span className="opacity-80">{formatTimeAgo(thought.timestamp)}</span>
         </div>
         
-        <p className="text-white mb-4 leading-relaxed">{thought.content}</p>
+        <p className="text-white mb-4 leading-relaxed text-sm">{thought.content}</p>
         
-        <div className="flex justify-between items-center pt-3 border-t border-white/10">
+        <div className="flex justify-between items-center pt-3 border-t border-white/5">
           <button 
-            className={`flex items-center gap-1 text-sm ${liked ? 'text-afterhours-crimson' : 'text-gray-400'} hover:text-afterhours-crimson transition-colors`}
+            className={`flex items-center gap-1 text-xs ${liked ? 'text-afterhours-crimson' : 'text-gray-400'} hover:text-afterhours-crimson transition-colors`}
             onClick={() => setLiked(!liked)}
           >
             <Heart className={`w-4 h-4 ${liked ? 'fill-afterhours-crimson' : ''}`} />
             <span>{liked ? thought.likes + 1 : thought.likes}</span>
           </button>
           
-          <button className="flex items-center gap-1 text-sm text-gray-400 hover:text-afterhours-blue transition-colors">
+          <button className="flex items-center gap-1 text-xs text-gray-400 hover:text-afterhours-blue transition-colors">
             <MessageCircle className="w-4 h-4" />
             <span>{thought.comments}</span>
           </button>

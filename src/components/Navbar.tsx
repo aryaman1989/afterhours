@@ -1,6 +1,5 @@
-
 import { useState, useEffect } from 'react';
-import { Menu, Moon, Sun, X } from 'lucide-react';
+import { Menu, Moon, Star, X } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
 
@@ -19,19 +18,22 @@ const Navbar = () => {
 
   return (
     <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled ? 'bg-afterhours-black/70 backdrop-blur-md py-3' : 'bg-transparent py-5'
+      scrolled ? 'glassmorphism py-3' : 'bg-transparent py-5'
     }`}>
       <div className="container mx-auto px-4 flex items-center justify-between">
         <div className="flex items-center">
           <Link to="/">
-            <h1 className="text-2xl font-bold text-white font-montserrat tracking-wider">
-              <span className="text-afterhours-blue text-glow">After</span>
-              <span>Hours</span>
+            <h1 className="text-2xl font-bold text-white font-inter tracking-wider flex items-center gap-2">
+              <div className="flex items-center gap-1">
+                <Moon className="w-5 h-5 text-afterhours-blue text-glow" />
+                <Star className="w-3 h-3 text-afterhours-blue text-glow" />
+              </div>
+              <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">AfterHours</span>
             </h1>
           </Link>
         </div>
         
-        <div className="hidden md:flex items-center space-x-6">
+        <div className="hidden md:flex items-center space-x-8">
           <NavLink href="/">Home</NavLink>
           <NavLink href="/feed">Feed</NavLink>
           <NavLink href="/#thoughts">Community</NavLink>
@@ -52,7 +54,7 @@ const Navbar = () => {
       </div>
       
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-afterhours-darkpurple/95 backdrop-blur-lg border-t border-white/10 animate-fade-in">
+        <div className="md:hidden absolute top-full left-0 right-0 glassmorphism animate-fade-in">
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
             <MobileNavLink href="/" onClick={() => setMobileMenuOpen(false)}>Home</MobileNavLink>
             <MobileNavLink href="/feed" onClick={() => setMobileMenuOpen(false)}>Feed</MobileNavLink>
@@ -77,7 +79,7 @@ const NavLink = ({ href, children }: { href: string; children: React.ReactNode }
     return (
       <a 
         href={href}
-        className="text-gray-300 hover:text-white transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-afterhours-blue after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
+        className="text-gray-300 hover:text-white transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-afterhours-blue after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 text-sm font-medium tracking-wide"
       >
         {children}
       </a>
@@ -89,14 +91,14 @@ const NavLink = ({ href, children }: { href: string; children: React.ReactNode }
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="text-gray-300 hover:text-white transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-afterhours-blue after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
+      className="text-gray-300 hover:text-white transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-afterhours-blue after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 text-sm font-medium tracking-wide"
     >
       {children}
     </a>
   ) : (
     <Link 
       to={href}
-      className="text-gray-300 hover:text-white transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-afterhours-blue after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
+      className="text-gray-300 hover:text-white transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-afterhours-blue after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 text-sm font-medium tracking-wide"
     >
       {children}
     </Link>
