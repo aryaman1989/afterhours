@@ -56,10 +56,10 @@ export default {
 				afterhours: {
 					crimson: '#7D1423',
 					blue: '#1B94C4',
-					purple: '#382B59',
-					darkpurple: '#1E1A2B',
-					black: '#020203',
-					neon: '#FF0084'
+					purple: '#6E59A5',
+					darkpurple: '#1A1F2C',
+					black: '#221F26',
+					neon: '#8B5CF6'
 				}
 			},
 			borderRadius: {
@@ -129,8 +129,8 @@ export default {
 				'star-pulse': 'star-pulse 3s ease-in-out infinite'
 			},
 			backgroundImage: {
-				'cosmic-gradient': 'linear-gradient(to bottom, #020203, #1E1A2B)',
-				'neon-glow': 'linear-gradient(90deg, #7D1423, #FF0084, #1B94C4)',
+				'cosmic-gradient': 'linear-gradient(to bottom, #221F26, #1A1F2C)',
+				'neon-glow': 'linear-gradient(90deg, #1A1F2C, #6E59A5, #1B94C4)',
 				'thought-card': 'linear-gradient(135deg, rgba(27, 148, 196, 0.1), rgba(56, 43, 89, 0.1))'
 			}
 		}

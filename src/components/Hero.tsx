@@ -4,10 +4,20 @@ import { Moon, Star } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
+  const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+  
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+    }, 1000);
+    
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-16 px-4" id="home">
       {/* Visual elements */}
-      <div className="absolute top-1/4 left-1/5 w-20 h-20 rounded-full bg-afterhours-crimson/20 blur-3xl"></div>
+      <div className="absolute top-1/4 left-1/5 w-20 h-20 rounded-full bg-afterhours-darkpurple/20 blur-3xl"></div>
       <div className="absolute bottom-1/4 right-1/5 w-32 h-32 rounded-full bg-afterhours-blue/20 blur-3xl"></div>
       
       <div className="text-center max-w-3xl mx-auto z-10 px-4">
@@ -18,7 +28,7 @@ const Hero = () => {
         
         <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tight font-montserrat animate-fade-in" style={{ animationDelay: '0.2s' }}>
           <span className="block text-white">When the world</span>
-          <span className="block bg-gradient-to-r from-afterhours-crimson via-afterhours-neon to-afterhours-blue bg-clip-text text-transparent text-glow">
+          <span className="block bg-gradient-to-r from-afterhours-darkpurple via-afterhours-blue to-afterhours-purple bg-clip-text text-transparent text-glow">
             goes to sleep
           </span>
         </h1>
@@ -28,7 +38,7 @@ const Hero = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.6s' }}>
-          <Button className="bg-gradient-to-r from-afterhours-crimson to-afterhours-neon text-white px-8 py-6 text-lg neo-glow">
+          <Button className="bg-gradient-to-r from-afterhours-darkpurple to-afterhours-blue text-white px-8 py-6 text-lg neo-glow">
             Share Your Thoughts
           </Button>
           <Button variant="outline" className="border-white/20 text-white hover:bg-white/5 px-8 py-6 text-lg backdrop-blur-sm">
@@ -40,7 +50,7 @@ const Hero = () => {
       {/* Time indicator */}
       <div className="absolute top-32 right-8 hidden md:flex items-center text-sm text-white/50 font-mono">
         <Moon className="w-4 h-4 mr-2" />
-        <span>{new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+        <span>{currentTime}</span>
       </div>
     </section>
   );
