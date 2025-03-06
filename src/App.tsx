@@ -1,5 +1,6 @@
 
-import { Routes, Route, useEffect } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
 import Index from "./pages/Index";
 import Feed from "./pages/Feed";
 import NotFound from "./pages/NotFound";
