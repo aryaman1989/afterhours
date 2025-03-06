@@ -1,10 +1,8 @@
-
 import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import ThoughtCard from "../components/ThoughtCard";
 import ParticleBackground from "../components/ParticleBackground";
 import { Button } from "@/components/ui/button";
-import { MoonStar } from "lucide-react";
 
 const Feed = () => {
   // Mock data for thought feed
@@ -84,24 +82,6 @@ const Feed = () => {
           </div>
         </div>
       </main>
-      
-      {/* Simplified retro cinematic footer */}
-      <footer className="py-6 border-t border-white/5 backdrop-blur-md relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-afterhours-darkpurple/80 to-transparent opacity-50"></div>
-        
-        {/* Retro scanline effect */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_50%,rgba(0,0,0,0.05)_50%)] bg-[length:100%_4px] opacity-10 pointer-events-none"></div>
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center">
-            <div className="inline-flex items-center gap-1">
-              <MoonStar className="w-4 h-4 text-afterhours-neon" />
-              <span className="text-white text-sm font-medium">After Hours</span>
-            </div>
-            <p className="text-gray-500 text-xs mt-2">Where night owls gather</p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };
