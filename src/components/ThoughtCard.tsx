@@ -20,21 +20,21 @@ const ThoughtCard = ({ thought }: ThoughtCardProps) => {
   
   const getMoodColor = (mood?: string) => {
     switch (mood) {
-      case 'calm': return 'from-blue-400/20 to-blue-600/10';
-      case 'reflective': return 'from-purple-400/20 to-purple-600/10';
-      case 'anxious': return 'from-red-400/20 to-red-600/10';
-      case 'hopeful': return 'from-green-400/20 to-green-600/10';
-      default: return 'from-gray-400/20 to-gray-600/10';
+      case 'calm': return 'from-blue-500/30 to-blue-700/20';
+      case 'reflective': return 'from-purple-500/30 to-purple-700/20';
+      case 'anxious': return 'from-red-500/30 to-red-700/20';
+      case 'hopeful': return 'from-green-500/30 to-green-700/20';
+      default: return 'from-gray-500/30 to-gray-700/20';
     }
   };
   
   const getMoodBorder = (mood?: string) => {
     switch (mood) {
-      case 'calm': return 'border-blue-500/20';
-      case 'reflective': return 'border-purple-500/20';
-      case 'anxious': return 'border-red-500/20';
-      case 'hopeful': return 'border-green-500/20';
-      default: return 'border-gray-500/20';
+      case 'calm': return 'border-blue-500/30';
+      case 'reflective': return 'border-purple-500/30';
+      case 'anxious': return 'border-red-500/30';
+      case 'hopeful': return 'border-green-500/30';
+      default: return 'border-gray-500/30';
     }
   };
   
@@ -44,17 +44,20 @@ const ThoughtCard = ({ thought }: ThoughtCardProps) => {
 
   return (
     <div className={`glassmorphism p-5 overflow-hidden transition-all duration-300 hover:shadow-xl rounded-xl ${getRandomRotation()} ${getMoodBorder(thought.mood)}`}>
-      <div className={`absolute -inset-1 opacity-20 rounded-xl bg-gradient-to-br ${getMoodColor(thought.mood)} z-0 blur-xl`}></div>
+      <div className={`absolute -inset-1 opacity-30 rounded-xl bg-gradient-to-br ${getMoodColor(thought.mood)} z-0 blur-xl`}></div>
+      
+      {/* Retro scanline effect */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_50%,rgba(0,0,0,0.05)_50%)] bg-[length:100%_2px] opacity-10 rounded-xl pointer-events-none"></div>
       
       <div className="relative z-10">
         <div className="text-xs font-medium text-gray-400 flex justify-between mb-3 items-center">
-          <span className="bg-white/5 px-3 py-1 rounded-full">{thought.anonymous ? 'Anonymous' : thought.author || 'Unknown'}</span>
-          <span className="opacity-80">{formatTimeAgo(thought.timestamp)}</span>
+          <span className="bg-white/5 px-3 py-1 rounded-full border border-white/5">{thought.anonymous ? 'Anonymous' : thought.author || 'Unknown'}</span>
+          <span className="opacity-80 font-mono">{formatTimeAgo(thought.timestamp)}</span>
         </div>
         
         <p className="text-white mb-4 leading-relaxed text-sm">{thought.content}</p>
         
-        <div className="flex justify-between items-center pt-3 border-t border-white/5">
+        <div className="flex justify-between items-center pt-3 border-t border-white/10">
           <button 
             className={`flex items-center gap-1 text-xs ${liked ? 'text-afterhours-crimson' : 'text-gray-400'} hover:text-afterhours-crimson transition-colors`}
             onClick={() => setLiked(!liked)}
