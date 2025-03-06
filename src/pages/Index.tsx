@@ -215,118 +215,102 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Resources Section */}
+      {/* Resources Section - Cleaned Up */}
       <section className="py-20 relative" id="resources">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
         
         <div className="container mx-auto px-4">
-          <div className="mb-16 text-center">
+          <div className="mb-12 text-center">
             <div className="inline-block px-4 py-1 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-sm text-gray-300 mb-6">
               <Book className="w-4 h-4 inline-block mr-2 text-afterhours-blue" />
               <span>Resources</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-3 font-montserrat text-white">Helpful Resources</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              We've gathered these resources to support you during those late hours when professional help might seem out of reach.
+            <p className="text-gray-400 max-w-xl mx-auto mb-8">
+              We've gathered resources to support you during those late hours when you might need a little help.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-xl font-bold text-white mb-6 flex items-center">
-                <Moon className="w-5 h-5 mr-2 text-afterhours-blue" />
-                <span>Sleep & Relaxation</span>
-              </h3>
-              
-              <div className="space-y-4">
-                <ResourceCard 
-                  icon={<Headphones className="text-afterhours-neon" />}
-                  title="Lo-Fi & Ambient Playlists"
-                  description="Curated music to help calm your mind and create the perfect late-night atmosphere."
-                  link="#"
-                />
-                
-                <ResourceCard 
-                  icon={<Moon className="text-afterhours-blue" />}
-                  title="Sleep Hygiene Guide"
-                  description="Evidence-based tips for improving your sleep quality and falling asleep faster."
-                  link="#"
-                />
-              </div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <ResourceCategory 
+              icon={<Moon className="w-6 h-6 text-afterhours-blue" />}
+              title="Sleep & Relaxation"
+              resources={[
+                {
+                  icon: <Headphones size={18} />,
+                  title: "Lo-Fi Playlists",
+                  description: "Calm your mind with ambient sounds",
+                  link: "#"
+                },
+                {
+                  icon: <Moon size={18} />,
+                  title: "Sleep Hygiene",
+                  description: "Evidence-based sleep tips",
+                  link: "#"
+                }
+              ]}
+            />
             
-            <div>
-              <h3 className="text-xl font-bold text-white mb-6 flex items-center">
-                <HelpCircle className="w-5 h-5 mr-2 text-afterhours-crimson" />
-                <span>Mental Health Support</span>
-              </h3>
-              
-              <div className="space-y-4">
-                <ResourceCard 
-                  icon={<PhoneCall className="text-afterhours-crimson" />}
-                  title="Crisis Hotlines"
-                  description="24/7 support lines for when you need someone to talk to right away."
-                  link="#"
-                />
-                
-                <ResourceCard 
-                  icon={<Bookmark className="text-afterhours-neon" />}
-                  title="Campus Resources Directory"
-                  description="Find mental health resources specific to your college or university."
-                  link="#"
-                />
-              </div>
-            </div>
+            <ResourceCategory 
+              icon={<HelpCircle className="w-6 h-6 text-afterhours-crimson" />}
+              title="Mental Health"
+              resources={[
+                {
+                  icon: <PhoneCall size={18} />,
+                  title: "Crisis Hotlines",
+                  description: "24/7 support for tough moments",
+                  link: "#"
+                },
+                {
+                  icon: <Bookmark size={18} />,
+                  title: "Campus Directory",
+                  description: "University mental health services",
+                  link: "#"
+                }
+              ]}
+            />
             
-            <div>
-              <h3 className="text-xl font-bold text-white mb-6 flex items-center">
-                <Book className="w-5 h-5 mr-2 text-afterhours-neon" />
-                <span>Educational Content</span>
-              </h3>
-              
-              <div className="space-y-4">
-                <ResourceCard 
-                  icon={<Book className="text-afterhours-blue" />}
-                  title="Understanding Anxiety"
-                  description="Learn the science behind late-night anxiety and effective coping strategies."
-                  link="#"
-                />
-                
-                <ResourceCard 
-                  icon={<ShieldAlert className="text-afterhours-crimson" />}
-                  title="Stress Management Techniques"
-                  description="Quick exercises you can do right now to reduce stress and racing thoughts."
-                  link="#"
-                />
-              </div>
-            </div>
+            <ResourceCategory 
+              icon={<Book className="w-6 h-6 text-afterhours-neon" />}
+              title="Educational"
+              resources={[
+                {
+                  icon: <Book size={18} />,
+                  title: "Anxiety Resources",
+                  description: "Understanding late-night anxiety",
+                  link: "#"
+                },
+                {
+                  icon: <ShieldAlert size={18} />,
+                  title: "Stress Management",
+                  description: "Quick exercises for racing thoughts",
+                  link: "#"
+                }
+              ]}
+            />
             
-            <div>
-              <h3 className="text-xl font-bold text-white mb-6 flex items-center">
-                <Users className="w-5 h-5 mr-2 text-afterhours-blue" />
-                <span>Community Support</span>
-              </h3>
-              
-              <div className="space-y-4">
-                <ResourceCard 
-                  icon={<MessageCircle className="text-afterhours-neon" />}
-                  title="Peer Support Groups"
-                  description="Find virtual and in-person groups that meet to discuss specific mental health topics."
-                  link="#"
-                />
-                
-                <ResourceCard 
-                  icon={<ExternalLink className="text-afterhours-blue" />}
-                  title="Professional Therapy Options"
-                  description="Resources for finding affordable therapy and counseling services for students."
-                  link="#"
-                />
-              </div>
-            </div>
+            <ResourceCategory 
+              icon={<Users className="w-6 h-6 text-afterhours-blue" />}
+              title="Community Support"
+              resources={[
+                {
+                  icon: <MessageCircle size={18} />,
+                  title: "Peer Support",
+                  description: "Connect with others who understand",
+                  link: "#"
+                },
+                {
+                  icon: <ExternalLink size={18} />,
+                  title: "Therapy Options",
+                  description: "Affordable counseling for students",
+                  link: "#"
+                }
+              ]}
+            />
           </div>
           
-          <div className="mt-12 text-center">
-            <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+          <div className="mt-10 text-center">
+            <p className="text-gray-300 mb-6 max-w-2xl mx-auto text-sm">
               If you're experiencing a mental health emergency, please contact your national crisis hotline or visit your nearest emergency room.
             </p>
             <Button variant="outline" className="border-white/20 text-white hover:bg-white/5">
@@ -428,6 +412,46 @@ const TestimonialCard = ({ quote, author }: TestimonialCardProps) => (
   <div className="p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
     <p className="text-gray-200 mb-4 italic">"{quote}"</p>
     <p className="text-sm text-afterhours-neon">— {author}</p>
+  </div>
+);
+
+interface ResourceCategoryProps {
+  icon: React.ReactNode;
+  title: string;
+  resources: {
+    icon: React.ReactNode;
+    title: string;
+    description: string;
+    link: string;
+  }[];
+}
+
+const ResourceCategory = ({ icon, title, resources }: ResourceCategoryProps) => (
+  <div className="glass-card p-5 bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm">
+    <div className="flex items-center mb-4">
+      <div className="p-2 rounded-full bg-white/10 mr-3">
+        {icon}
+      </div>
+      <h3 className="text-lg font-bold text-white">{title}</h3>
+    </div>
+    
+    <div className="space-y-3">
+      {resources.map((resource, index) => (
+        <a 
+          key={index}
+          href={resource.link} 
+          className="flex p-3 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-300"
+        >
+          <div className="p-1.5 mr-3 rounded-full bg-white/10 h-fit">
+            {resource.icon}
+          </div>
+          <div>
+            <h4 className="text-white text-sm font-medium mb-0.5">{resource.title}</h4>
+            <p className="text-gray-400 text-xs">{resource.description}</p>
+          </div>
+        </a>
+      ))}
+    </div>
   </div>
 );
 
