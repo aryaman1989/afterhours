@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, Moon, Star, X } from 'lucide-react';
+import { Menu, MoonStar, X } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
 
@@ -15,7 +15,7 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
+  
   return (
     <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrolled ? 'glassmorphism py-3' : 'bg-transparent py-5'
@@ -24,7 +24,8 @@ const Navbar = () => {
         <div className="flex items-center">
           <Link to="/">
             <h1 className="text-2xl font-bold text-white font-inter tracking-wider flex items-center gap-2">
-              <span className="bg-gradient-to-r from-white via-white/90 to-white/70 bg-clip-text text-transparent">AfterHours</span>
+              <MoonStar className="w-6 h-6 text-afterhours-blue" />
+              <span className="bg-gradient-to-r from-white via-white/90 to-white/70 bg-clip-text text-transparent retro-text">After Hours</span>
             </h1>
           </Link>
         </div>
@@ -50,7 +51,7 @@ const Navbar = () => {
       </div>
       
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 glassmorphism animate-fade-in">
+        <div className="md:hidden absolute top-full left-0 right-0 glassmorphism animate-fade-in vhs-effect">
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
             <MobileNavLink href="/" onClick={() => setMobileMenuOpen(false)}>Home</MobileNavLink>
             <MobileNavLink href="/feed" onClick={() => setMobileMenuOpen(false)}>Feed</MobileNavLink>
