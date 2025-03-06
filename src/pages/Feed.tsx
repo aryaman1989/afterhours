@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 import ThoughtCard from "../components/ThoughtCard";
 import ParticleBackground from "../components/ParticleBackground";
 import { Button } from "@/components/ui/button";
-import { MoonStar, Star } from "lucide-react";
+import { MoonStar } from "lucide-react";
 
 const Feed = () => {
   // Mock data for thought feed
@@ -58,18 +58,10 @@ const Feed = () => {
       <main className="container mx-auto px-4 pt-24 pb-16">
         <div className="max-w-4xl mx-auto">
           <div className="mb-12 text-center">
-            <div className="inline-block px-4 py-1 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-sm text-gray-300 mb-6">
-              <MoonStar className="w-4 h-4 inline-block mr-2 text-afterhours-neon" />
-              <span>Live Thoughts</span>
-            </div>
-            <h1 className="text-3xl md:text-4xl font-bold font-montserrat text-white mb-4 bg-gradient-to-r from-afterhours-blue via-afterhours-purple to-afterhours-blue bg-clip-text text-transparent">Live Thought Feed</h1>
-            <p className="text-gray-300 max-w-2xl mx-auto">
-              See what people are thinking about in real-time. These thoughts are shared anonymously from users around the world.
-            </p>
+            <h1 className="text-3xl md:text-4xl font-bold font-montserrat text-white mb-4 bg-gradient-to-r from-afterhours-blue via-afterhours-purple to-afterhours-blue bg-clip-text text-transparent">Late Night Thoughts</h1>
           </div>
           
-          <div className="mb-10 p-6 glass-card bg-gradient-to-br from-afterhours-blue/10 to-afterhours-darkpurple/30 rounded-xl backdrop-blur-sm">
-            <h2 className="text-xl font-bold text-white mb-4">Filter Thoughts</h2>
+          <div className="mb-10 p-4 glass-card bg-gradient-to-br from-afterhours-blue/10 to-afterhours-darkpurple/30 rounded-xl backdrop-blur-sm">
             <div className="flex flex-wrap gap-2">
               <Button variant="outline" className="text-sm border-white/20 bg-white/5 hover:bg-white/10 hover:border-afterhours-blue/50 transition-all duration-300">All</Button>
               <Button variant="outline" className="text-sm border-white/20 bg-transparent hover:bg-purple-600/10 hover:border-purple-400/50 transition-all duration-300">Reflective</Button>
@@ -87,28 +79,26 @@ const Feed = () => {
           
           <div className="mt-10 text-center">
             <Button variant="outline" className="border-white/20 text-white hover:bg-white/5 backdrop-blur-sm neo-glow">
-              Load More Thoughts
+              Load More
             </Button>
-          </div>
-          
-          <div className="mt-20 text-center">
-            <div className="inline-flex items-center gap-2 text-sm text-gray-400">
-              <Star className="w-3 h-3 text-afterhours-neon animate-star-pulse" />
-              <span>Refreshing thoughts in real-time</span>
-              <Star className="w-3 h-3 text-afterhours-blue animate-star-pulse" style={{ animationDelay: '1.5s' }} />
-            </div>
           </div>
         </div>
       </main>
       
-      {/* Footer with subtle cosmic gradient */}
-      <footer className="py-8 border-t border-white/5 backdrop-blur-md relative overflow-hidden">
+      {/* Simplified retro cinematic footer */}
+      <footer className="py-6 border-t border-white/5 backdrop-blur-md relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-afterhours-darkpurple/80 to-transparent opacity-50"></div>
+        
+        {/* Retro scanline effect */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_50%,rgba(0,0,0,0.05)_50%)] bg-[length:100%_4px] opacity-10 pointer-events-none"></div>
+        
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center">
-            <p className="text-gray-500 text-sm">
-              Made with <span className="text-afterhours-crimson text-glow animate-pulse inline-block">♥</span> by <span className="bg-gradient-to-r from-afterhours-crimson to-afterhours-blue bg-clip-text text-transparent text-sm font-medium">After Hours</span>
-            </p>
+            <div className="inline-flex items-center gap-1">
+              <MoonStar className="w-4 h-4 text-afterhours-neon" />
+              <span className="text-white text-sm font-medium">After Hours</span>
+            </div>
+            <p className="text-gray-500 text-xs mt-2">Where night owls gather</p>
           </div>
         </div>
       </footer>

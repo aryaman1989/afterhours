@@ -37,13 +37,9 @@ const ThoughtCard = ({ thought }: ThoughtCardProps) => {
       default: return 'border-gray-500/30';
     }
   };
-  
-  const getRandomRotation = () => {
-    return Math.random() > 0.5 ? 'rotate-0.5' : '-rotate-0.5';
-  };
 
   return (
-    <div className={`glassmorphism p-5 overflow-hidden transition-all duration-300 hover:shadow-xl rounded-xl ${getRandomRotation()} ${getMoodBorder(thought.mood)}`}>
+    <div className={`glassmorphism p-5 relative overflow-hidden rounded-xl ${getMoodBorder(thought.mood)}`}>
       <div className={`absolute -inset-1 opacity-30 rounded-xl bg-gradient-to-br ${getMoodColor(thought.mood)} z-0 blur-xl`}></div>
       
       {/* Retro scanline effect */}
